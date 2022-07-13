@@ -28,3 +28,5 @@ function validate(valid) {
 }
 module.exports.createUser = createUser;
 module.exports.validate = validate;
+module.exports.userSchema = userSchema;
+module.exports.User = User;
