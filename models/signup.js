@@ -1,4 +1,4 @@
-const { log } = require("console");
+const { log } = console;
 const Joi = require("joi");
 const mongoose = require("mongoose");
 mongoose
