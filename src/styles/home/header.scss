@@ -6,7 +6,8 @@
   font-family: "Roboto", sans-serif;
 }
 body {
-  background-color: rgb(47, 46, 61);
+  background: linear-gradient(to right, #0f0c29, #302b63, #2c5364);
+  backdrop-filter: blur(10);
 }
 header {
   color: #fff;
@@ -17,17 +18,18 @@ header {
     padding: 30px 50px;
     h1 {
       font-size: 30px;
+      text-transform: uppercase;
     }
     .auth-content {
       a {
-        padding: 15px 30px;
-        background-color: blue;
         text-decoration: none;
+        font-size: 25px;
+        padding: 10px 20px;
+        background-color: transparent;
         color: #fff;
-        border: none;
-        border-radius: 6px;
-        font-size: 21px;
-        margin: 0 3px;
+        border-radius: 5px;
+        margin: 5px;
+        border: 1px solid white;
       }
     }
   }
