@@ -15,9 +15,15 @@ const initialState: initialStateType = {
   mail: "",
   password: "",
 };
-const thunk = createAsyncThunk("user/fetch", () => {
+export const thunk = createAsyncThunk("user/fetch", () => {
+  const { username, mail, password } = JSON.parse(
+    localStorage.getItem("user") || ""
+  );
+
   return axios
-    .get("http://localhost:4000/")
+    .get(
+      `http://localhost:4000/api?username=${username}&mail=${mail}&password=${password}`
+    )
     .then((data) => data)
     .catch((error) => error);
 });

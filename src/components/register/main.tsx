@@ -1,14 +1,18 @@
-import { Button, TextField } from "@mui/material";
+import { Button, CircularProgress, TextField } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { thunk } from "../../state/store";
 import "../../styles/register/main.scss";
 function Main() {
   const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [disabled, setDisabled] = useState<{ disabled: boolean }>({
+    disabled: false,
+  });
   async function postUser(e: any) {
     e.preventDefault();
     await axios
@@ -20,6 +24,7 @@ function Main() {
       .then((data) => localStorage.setItem("user", JSON.stringify(data.data)))
       .catch((error) => console.log(error));
   }
+
   return (
     <main>
       <form onSubmit={postUser} className="form">
@@ -41,6 +46,7 @@ function Main() {
             autoComplete="off"
             className="input"
             label="email"
+            type="email"
             variant="outlined"
             onChange={(e) => {
               setEmail(e.target.value);
@@ -54,6 +60,7 @@ function Main() {
             autoComplete="off"
             className="input"
             label="password"
+            type="password"
             variant="outlined"
             onChange={(e) => {
               setPassword(e.target.value);
@@ -62,9 +69,27 @@ function Main() {
             required
           ></TextField>
         </div>
-        <Button id="button" type="submit" variant="contained">
+        <Button
+          onClick={() => {
+            setTimeout(() => setDisabled({ disabled: true }), 500);
+
+            setTimeout(() => setDisabled({ disabled: false }), 2000);
+          }}
+          disabled={disabled.disabled}
+          id="button"
+          type="submit"
+          variant="contained"
+        >
           Register
         </Button>
+        <CircularProgress
+          sx={{
+            display: disabled.disabled ? "block" : "none",
+            position: "relative",
+            margin: "auto",
+            top: "-45px",
+          }}
+        ></CircularProgress>
       </form>
     </main>
   );
