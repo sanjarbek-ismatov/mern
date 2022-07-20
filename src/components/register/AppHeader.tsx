@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 import Main from "./main";
 
 function AppHeader() {
@@ -6,10 +7,10 @@ function AppHeader() {
     <>
       <header>
         <nav>
-          <h1>auth</h1>
+        <Link to='/'>Auth</Link>
           <div className="auth-content">
-            <Link to="/">Home</Link>
-            <Link to="/login">Sign in</Link>
+            <Button sx={{margin: '5px', fontSize: '20px'}} variant="contained" component={Link} to="/">Home</Button>
+            <Button sx={{margin: '5px', fontSize: '20px'}} variant="contained" component={Link} to="/login">Sign in</Button>
           </div>
         </nav>
       </header>
