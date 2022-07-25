@@ -16,8 +16,8 @@ function Main() {
   async function postUser(e: any) {
     e.preventDefault();
     await axios
-      .post(`http://localhost:4000/api/register`, {
-        username: username,
+      .post(`http://localhost:4000/api/post`, {
+        name: username,
         mail: email,
         password: password,
       })

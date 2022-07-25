@@ -2,12 +2,21 @@ main {
   color: #fff;
   text-align: center;
   h1 {
-
     font-size: 60px;
     background: linear-gradient(to right, #37ffff 0%, #dbca00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 100px auto 50px;
+    animation: animate 3s infinite;
+    transition: background 3s ease;
+  }
+  @keyframes animate {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   .button-box {
     // padding-top: 50px;
