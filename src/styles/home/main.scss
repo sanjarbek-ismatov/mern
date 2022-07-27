@@ -4,6 +4,7 @@ main {
   h1 {
     font-size: 60px;
     background: linear-gradient(to right, #37ffff 0%, #dbca00 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 100px auto 50px;
@@ -17,18 +18,5 @@ main {
     100% {
       opacity: 1;
     }
-  }
-  .button-box {
-    // padding-top: 50px;
-    // a {
-    //   text-decoration: none;
-    //   font-size: 25px;
-    //   padding: 10px 20px;
-    //   background-color: transparent;
-    //   color: #fff;
-    //   border-radius: 5px;
-    //   margin: 5px;
-    //   border: 1px solid white;
-    // }
   }
 }
